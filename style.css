@@ -1,0 +1,7 @@
+/* css file */
+
+.gridSquare, 
+.row {
+    border: 1px solid;
+    margin: 2px;
+}
