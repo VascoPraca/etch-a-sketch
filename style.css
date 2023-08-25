@@ -6,3 +6,6 @@
     background-color: blueviolet;
 } 
 
+.square:hover {
+    background-color: crimson;
+}
