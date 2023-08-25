@@ -1,7 +1,8 @@
 /* css file */
 
-.gridSquare, 
-.row {
+.square {
     border: 1px solid;
-    margin: 2px;
-}
+    margin: .5px;
+    background-color: blueviolet;
+} 
+

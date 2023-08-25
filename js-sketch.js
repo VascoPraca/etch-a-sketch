@@ -1,20 +1,30 @@
 // javaScript file
 
 // generates a dynamic grid
-// function generateDivs(num){
-//     const container = document.querySelector('#container');
-//     for(let i = 0; i < num; i++){
-//         let row = document.createElement('div');
-//         row.className = 'row';
-//         for (let x = 1; x <= num; x++){
-//             let cell = document.createElement('div');
-//             cell.className = 'gridSquare';
-//             row.appendChild(cell);
-//         };
-//         container.appendChild(row);
-//     };
-//    // document.querySelector('#code').innerText = container.innerHTML;
-// };
+function generateDivs(x, y, cellSize, gridElement) {
+    gridElement.style.display = "grid";
+    gridElement.style.gridTemplateColumns = `repeat(${x}, ${cellSize}px)`;
+    gridElement.style.gridTemplateRows = `repeat(${y}, ${cellSize}px)`;
+
+    let squares = new DocumentFragment();
+
+    for (let i = 0; i < x * y; i++) {
+        let square = document.createElement('div');
+        square.className = 'square';
+        squares.appendChild(square);
+    }
+    gridElement.appendChild(squares);
+}
 
 
-document.querySelector('#container').style.grid = '250px / auto auto';
+function promptBtn(){
+    let userGridSelectRow = prompt("Please enter the number of rows desired");
+    let userGridSelectColumns = prompt("Please enter the number of columns desired");
+    if (userGridSelectColumns <= 100 && userGridSelectRow <= 100) {
+        generateDivs(userGridSelectColumns, userGridSelectRow, 25, document.querySelector('#container'));
+    }else {
+        promptBtn();
+    }        
+}
+
+
