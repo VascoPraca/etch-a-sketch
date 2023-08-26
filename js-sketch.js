@@ -18,11 +18,12 @@ function generateDivs(x, y, cellSize, gridElement) {
 
 
 function promptBtn(){
-    let userGridSelectRow = prompt("Please enter the number of rows desired");
-    let userGridSelectColumns = prompt("Please enter the number of columns desired");
-    if (userGridSelectColumns <= 100 && userGridSelectRow <= 100) {
+    let userGridSelectRow = prompt("Please enter the number of rows desired to a max of 32");
+    let userGridSelectColumns = prompt("Please enter the number of columns desired to a max of 32");
+    if (userGridSelectColumns <= 32 && userGridSelectRow <= 32) {
         cleanBtn();
-        generateDivs(userGridSelectColumns, userGridSelectRow, 15, document.querySelector('#container'));
+        generateDivs(userGridSelectColumns, userGridSelectRow, 17, document.querySelector('#gridContainer'));
+
     }else {
         promptBtn();
     }        
@@ -30,7 +31,6 @@ function promptBtn(){
 
 // use innerHTML to clean grid when generating a new one
 function cleanBtn(){
-    let cleanContainer = document.getElementById('container');
+    let cleanContainer = document.getElementById('gridContainer');
      cleanContainer.innerHTML = '';
  }
-
