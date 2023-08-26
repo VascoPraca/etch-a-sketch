@@ -7,7 +7,7 @@ function generateDivs(x, y, cellSize, gridElement) {
     gridElement.style.gridTemplateRows = `repeat(${y}, ${cellSize}px)`;
 
     let squares = new DocumentFragment();
-
+    
     for (let i = 0; i < x * y; i++) {
         let square = document.createElement('div');
         square.className = 'square';
@@ -21,10 +21,16 @@ function promptBtn(){
     let userGridSelectRow = prompt("Please enter the number of rows desired");
     let userGridSelectColumns = prompt("Please enter the number of columns desired");
     if (userGridSelectColumns <= 100 && userGridSelectRow <= 100) {
-        generateDivs(userGridSelectColumns, userGridSelectRow, 25, document.querySelector('#container'));
+        cleanBtn();
+        generateDivs(userGridSelectColumns, userGridSelectRow, 15, document.querySelector('#container'));
     }else {
         promptBtn();
     }        
 }
 
+// use innerHTML to clean grid when generating a new one
+function cleanBtn(){
+    let cleanContainer = document.getElementById('container');
+     cleanContainer.innerHTML = '';
+ }
 
